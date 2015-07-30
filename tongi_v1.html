@@ -8,16 +8,18 @@
   
   <style>
     #map {
-      height:280px;
+      height:800px;
     }
 </style>
 </head>
 
 <body>
+  <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v0.0.4/Leaflet.fullscreen.min.js'>//adds fullscreen support</script> 
+  <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v0.0.4/leaflet.fullscreen.css' rel='stylesheet' />
   <div id="map"></div>
   <script src="houses_geo.js"></script>
   <script type="text/javascript">
-    var map = L.map('map').setView([23.886996, 90.408819], 15);
+    var map = L.map('map').setView([23.886996, 90.408819], 17);
 
     L.tileLayer('http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png',  {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
@@ -26,11 +28,24 @@
     accessToken: 'pk.eyJ1IjoibWRwNTUzIiwiYSI6IkVFMWFjUnMifQ.vsUpHjMQ2_3AsPPgfIevkg'
     }).addTo(map);
 
- 
+    function onEachFeature(feature, layer){
+      if (feature.properties) {
+        layer.bindPopup("Household <b>" + feature.properties.Household +"</b>");
+      }
+    }
 
-    var houses = new L.geoJson(houses_geo)
+    var houses = new L.geoJson(houses_geo, {
+      onEachFeature: onEachFeature
+    })
     .addTo(map);
+
+    L.control.fullscreen().addTo(map);
+
   
   </script>
 </body>
 </html>
+
+
+
+layer.bindPopup("<b>" + feature.properties.street + "</b> is " + feature.properties.length + "km long.");
