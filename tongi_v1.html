@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Tongi_v1</title>
+  <meta charset="utf-8">
+ <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+  
+  <style>
+    #map {
+      height:280px;
+    }
+</style>
+</head>
+
+<body>
+  <div id="map"></div>
+  <script src="houses_geo.js"></script>
+  <script type="text/javascript">
+    var map = L.map('map').setView([23.886996, 90.408819], 15);
+
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mdp553.mc501bgh',
+    accessToken: 'pk.eyJ1IjoibWRwNTUzIiwiYSI6IkVFMWFjUnMifQ.vsUpHjMQ2_3AsPPgfIevkg'
+    }).addTo(map);
+
+ 
+
+    var houses = new L.geoJson(houses_geo)
+    .addTo(map);
+  
+  </script>
+</body>
+</html>
