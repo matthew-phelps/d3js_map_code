@@ -34,8 +34,16 @@
       }
     }
 
+    var geojsonMarkerOptions = {
+      radius: 5,
+      fillOpacity: 0.7
+    };
+
     var houses = new L.geoJson(houses_geo, {
-      onEachFeature: onEachFeature
+      onEachFeature: onEachFeature,
+      pointToLayer: function(feature, latlng) {
+        return L.circleMarker(latlng, geojsonMarkerOptions);
+      }
     })
     .addTo(map);
 
@@ -45,7 +53,3 @@
   </script>
 </body>
 </html>
-
-
-
-layer.bindPopup("<b>" + feature.properties.street + "</b> is " + feature.properties.length + "km long.");
