@@ -7,67 +7,30 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
   
   <style>
-    #map {
-      height:800px;
-    }
+    #map {height:800px;}
 </style>
 </head>
 
 <body>
-  <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v0.0.4/Leaflet.fullscreen.min.js'>//adds fullscreen support</script> 
+  
+  <!-- adds fullscreen support -->
+  <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v0.0.4/Leaflet.fullscreen.min.js'></script> 
   <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v0.0.4/leaflet.fullscreen.css' rel='stylesheet' />
+  
+  <!--Clustering-->
+  <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
+  <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
+  <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css' rel='stylesheet' />
+
   <div id="map"></div>
-  <script src="houses_geo3.js"></script>
+  
+  <!-- LOAD DATA-->
+  <script src="house_geo3.js"></script>
   <script src="water_geo.js"></script>
-  <script type="text/javascript">
-    var map = L.map('map').setView([23.886996, 90.408819], 17);
 
-    L.tileLayer('http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png',  {
-    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-    maxZoom: 18,
-    id: 'mdp553.mc501bgh',
-    accessToken: 'pk.eyJ1IjoibWRwNTUzIiwiYSI6IkVFMWFjUnMifQ.vsUpHjMQ2_3AsPPgfIevkg'
-    }).addTo(map);
-
-    function onEachFeatureHouse(feature, layer){
-      if (feature.properties) {
-        layer.bindPopup("Household <b>" + feature.properties.Household +"</b>");
-      }
-    }
-
-     function onEachFeatureWater(feature, layer){
-      if (feature.properties) {
-        layer.bindPopup("Name: <b>" + feature.properties.Name + "</b><br /> Pump ID: <b>" + feature.properties.Pump_ID + '</b>');
-      }
-    }
-
-    var houseMarkerOptions = {
-      radius: 5,
-      fillOpacity: 0.7
-    };
-    var waterMarkerOptions = {
-      radius: 10,
-      color: 'red',
-      fillOpacity: 0.7
-    };
-
-    var houses = new L.geoJson(houses_geo, {
-      onEachFeature: onEachFeatureHouse,
-      pointToLayer: function(feature, latlng) {
-        return L.circleMarker(latlng, houseMarkerOptions);
-      }
-    })
-    .addTo(map);
-
-    var water = new L.geoJson(water_geo, {
-      onEachFeature:onEachFeatureWater,
-      pointToLayer: function(feature, latlng){
-        return L.circleMarker(latlng, waterMarkerOptions);
-      }
-    })
-    .addTo(map);
-
-    L.control.fullscreen().addTo(map);
+  <!-- LOAD JavaScript -->
+  <script type="text/javascript", src ='map_js.js'>
+    
 
   
   </script>
