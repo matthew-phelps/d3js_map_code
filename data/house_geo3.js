@@ -2,7 +2,25 @@ var houses_geo = [{
 "type": "FeatureCollection",
                                                                                 
 "features": [
-{ "type": "Feature", "id": 1, "properties": { "Household_ID": 1.000000, "Listing.Number": "27", "Pump_ID": "26", "Date.of.visit": "19.12.14", "Source_type": "WASA", "Name": "Matbar bazar WASA pump", "Notes": "Data collected by Sharif", "Main.Source.ID": "m2", "Cluster": "10", "lat": 23.888300, "lon": 90.412500 }, "geometry": { "type": "Point", "coordinates": [ 90.4125, 23.8883 ] } },
+	{ 	"type": "Feature", 
+		"id": 1, 
+		"properties": { 
+			"Household_ID": 1.000000, 
+			"Listing.Number": "27", 
+			"Pump_ID": "26", 
+			"Date.of.visit": "19.12.14", 
+			"Source_type": "WASA", 
+			"Name": "Matbar bazar WASA pump",
+			"Notes": "Data collected by Sharif", 
+			"Main.Source.ID": "m2", 
+			"Cluster": "10", 
+			"lat": 23.888300, 
+			"lon": 90.412500 }, 
+		"geometry": { 
+			"type": "Point",
+			"coordinates": [ 90.4125, 23.8883 ] 
+		} 
+	},
 { "type": "Feature", "id": 2, "properties": { "Household_ID": 2.000000, "Listing.Number": "462", "Pump_ID": "24", "Date.of.visit": "17.12.14", "Source_type": "WASA", "Name": "Boubazar WASA pump", "Notes": "Data collected by Sonia", "Main.Source.ID": "m3", "Cluster": "17", "lat": 23.888100, "lon": 90.409230 }, "geometry": { "type": "Point", "coordinates": [ 90.40923, 23.8881 ] } },
 { "type": "Feature", "id": 3, "properties": { "Household_ID": 3.000000, "Listing.Number": "349", "Pump_ID": "24", "Date.of.visit": "0.7994675925925926", "Source_type": "WASA", "Name": "Boubazar WASA pump", "Notes": "Data collected by Mamun", "Main.Source.ID": "m3", "Cluster": "19", "lat": 23.885100, "lon": 90.409200 }, "geometry": { "type": "Point", "coordinates": [ 90.4092, 23.8851 ] } },
 { "type": "Feature", "id": 4, "properties": { "Household_ID": 4.000000, "Listing.Number": "672", "Pump_ID": "1", "Date.of.visit": "09.12.14", "Source_type": "ERROR", "Name": "Shahi mosque, KNIR ", "Notes": "Data collected by Sonia", "Main.Source.ID": "220003", "Cluster": "16", "lat": 23.888400, "lon": 90.408300 }, "geometry": { "type": "Point", "coordinates": [ 90.4083, 23.8884 ] } },
